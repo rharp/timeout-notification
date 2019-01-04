@@ -33,7 +33,7 @@ class ConfigForm extends ConfigFormBase {
       '#size' => 30,
       '#maxlength' => 128,
       '#required' => TRUE,
-      '#default_value' => ($config->get('time_till_expire') != null ? $config->get('time_till_expire') : 60),
+      '#default_value' => $config->get('time_till_expire'),
       '#description' => $this->t('Please enter the seconds before timeout to notify user. (Note: Your drupal sessions are set to expire after ' . ini_get("session.gc_maxlifetime") . ' seconds of inactivity.)'),
     ];
     $form['#attached']['library'][] = 'timeout_notification/timeout_notification.form';
