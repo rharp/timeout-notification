@@ -1,5 +1,5 @@
-name: 'Timeout Notification'
+name: Timeout Notification
 type: module
 description: 'This module will notify users of the drupal session expiring and allow them to refresh their session.'
 core: 8.x
-package: 'Custom'
+package: Other
