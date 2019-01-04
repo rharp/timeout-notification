@@ -22,13 +22,13 @@
         '<div class="notifier">' +
           '<div class="notifier-header">' +
             '<button class="notifier-close">&times;</button>' +
-            '<h2>Timeout Notification</h2>' +
+            '<h2>'+ Drupal.t('Timeout Notification') + '</h2>' +
           '</div>' +
           '<div class="notifier-body">' +
-            '<p>Session will expire in xx seconds</p>' +
+            '<p>' + Drupal.t('Session will expire in xx seconds') + '</p>' +
           '</div>' +
           '<div class="notifier-footer">' +
-            '<button class="notifier-btn">Extend Session</button>' +
+            '<button class="notifier-btn">'+ Drupal.t('Extend Session') + '</button>' +
           '</div>' +
         '</div>';
       notifier.style.display = 'none';
@@ -54,16 +54,16 @@
         if (timestamp >= timeout) {
           // Session has expired.
           if (!expireDisplayed)  {
-            notifierBody.innerText = 'Session Has Expired';
-            notifierBtn.innerText = 'OK';
+            notifierBody.innerText = Drupal.t('Session Has Expired');
+            notifierBtn.innerText = Drupal.t('OK');
             document.getElementById('timeout-notifier').style.display = 'block';
             expireDisplayed = true;
           }
         }
         else if (timestamp >= timeout - timeTillExpire) {
           // Session has less than timeTillExpire seconds until expired.
-          notifierBody.innerText = 'Session Expiring in ' + timeLeft + ' seconds.';
-          notifierBtn.innerText = 'Extend Session';
+          notifierBody.innerText = Drupal.t('Session Expiring in ' + timeLeft + ' seconds.');
+          notifierBtn.innerText = Drupal.t('Extend Session');
           if (!notifierDisplayed) {
             document.getElementById('timeout-notifier').style.display = 'block';
             notifierDisplayed = true;
