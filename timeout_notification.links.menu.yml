@@ -1,0 +1,5 @@
+timeout_notification.settings:
+  title: 'Timeout Notification'
+  description: 'Contains settings for customizing the timeout notification.'
+  route_name: timeout_notification.settings
+  parent: system.admin_config
