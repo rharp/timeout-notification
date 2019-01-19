@@ -1,8 +1,8 @@
 # Schema file for the configuration files of the timeout notification module.
 timeout_notification.settings:
   type: config_object
-  label: 'Timeout Notification Settings'
+  label: 'Session Timeout Notification Settings'
   mapping:
     time_till_expire:
       type: integer
-      label: 'Seconds Until Timeout to Notify User'
+      label: 'Seconds Until Session Timeout to Notify User'

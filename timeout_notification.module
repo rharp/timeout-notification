@@ -31,14 +31,14 @@ function timeout_notification_help($route_name, RouteMatchInterface $route_match
 function timeout_notification_page_attachments_alter(array &$attachments) {
   // Check user authentication.
   if (\Drupal::currentUser()->isAuthenticated()) {
-    // Get session expire settings.
-    $max_lifetime = ini_get("session.gc_maxlifetime");
-    // Get time till expire
+    // Get time till notify
+    $max_lifetime = ini_get('session.gc_maxlifetime');
     $config = \Drupal::config('timeout_notification.settings');
     $time_till_expire = $config->get('time_till_expire');
+    $time_to_notify = $max_lifetime - $time_till_expire;
     // Create variables to check inside of timeout-notifier.js.
+    $attachments['#attached']['drupalSettings']['timeout_notification']['timeout_notifier']['time_to_notify'] = $time_to_notify;
     $attachments['#attached']['drupalSettings']['timeout_notification']['timeout_notifier']['max_lifetime'] = $max_lifetime;
-    $attachments['#attached']['drupalSettings']['timeout_notification']['timeout_notifier']['time_till_expire'] = $time_till_expire;
     // Include libraries.
     $attachments['#attached']['library'][] = 'timeout_notification/timeout-notifier';
   }
