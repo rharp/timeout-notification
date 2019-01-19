@@ -24,17 +24,17 @@ class ConfigForm extends ConfigFormBase {
     $config = $this->config('timeout_notification.settings');
     $form['to_settings'] = array(
       '#type' => 'details',
-      '#title' => $this->t('Timeout Notification Settings'),
+      '#title' => $this->t('Session Timeout Notification Settings'),
       '#open' => TRUE,
     );
     $form['to_settings']['time_till_expire'] = [
       '#type' => 'textfield',
-      '#title' => $this->t('Seconds Until Timeout to Notify User'),
+      '#title' => $this->t('Seconds Before Session Expiration to Notify User'),
       '#size' => 30,
       '#maxlength' => 128,
       '#required' => TRUE,
       '#default_value' => $config->get('time_till_expire'),
-      '#description' => $this->t('Please enter the seconds before timeout to notify user. (Note: Your drupal sessions are set to expire after ' . ini_get("session.gc_maxlifetime") . ' seconds of inactivity.)'),
+      '#description' => $this->t('(Note: Your drupal sessions are set to expire after ' . ini_get("session.gc_maxlifetime") . ' seconds of inactivity.)'),
     ];
     $form['#attached']['library'][] = 'timeout_notification/timeout_notification.form';
     return parent::buildForm($form, $form_state);
